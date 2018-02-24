@@ -1,14 +1,26 @@
-const todos = ['Item 01', 'Item 02', 'Item 03'];
+const todos = [];
+const qs = document.querySelector('#myTodos');
 
-function displayTodos() {
-  const x = 'My List: ';
-  document.querySelector('#myTodos').innerHTML = x + '<br />' + todos.join('<br />');
+function addTodo() {
+  const x = document.querySelector('#addTodosInput').value;
+  todos.push(x);
+
+  for (let i = 0; i < todos.length; i++) {
+    var removeItem = " <a href='#' onClick='removeTodo(" + i + ");'>X</a> " + todos[i];
+  };
+
+  qs.innerHTML += removeItem;
 }
 
-function addTodos() {
-  todos.push(document.querySelector('#addTodosInput').value);
-  displayTodos();
+function removeTodo(i) {
+  todos.splice(i, 1);
+  var removeItem2 = "";
+
+  for (let i = 0; i < todos.length; i++) {
+    removeItem2 += " <a href='#' onClick='removeTodo(" + i + ");'>X</a> " + todos[i];
+  };
+
+  qs.innerHTML = removeItem2;
 }
 
-document.querySelector('#todos').addEventListener("click", displayTodos);
-document.querySelector('#addTodos').addEventListener("click", addTodos);
+document.querySelector('#addTodo').addEventListener('click', addTodo);
