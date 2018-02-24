@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+a, a:visited {
+  color: red;
+}
+
+#myTodos {
+  margin: 20px auto;
+}
+
+#myTodos p:first-child {
+  margin: 10px auto;
+}
